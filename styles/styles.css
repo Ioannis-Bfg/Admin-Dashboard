@@ -51,10 +51,19 @@ table {
 body{
     display: grid;
     grid-template-columns: 3fr 12fr;
-    height:100vh;
     font-family: 'Roboto',sans-serif;
+    height:100vh;
 }
 
+img {
+    width:40px;
+    height:40px;
+}
+
+#dashboard, #content, #top_bar {
+    max-height: calc(100vh);
+    /* overflow: hidden;  */
+}
 /* DASHBOARD */
 #dashboard{
     background-color: #1992d4;
@@ -65,7 +74,6 @@ body{
     gap:40px;
     padding-top: 3%;
     padding-left: 10%;
-    height:100vh;
 }
 
 /* CONTENT */
@@ -80,45 +88,81 @@ body{
 #top_bar{
     background-color: #ffffff;
     display:grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 4fr 6fr;
 }
 
-#highlight{
-    /* display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    justify-items: center; */
-    display: flex;
-    justify-content: space-between;
-    padding:3% 4%;
-}
+    #highlight{
+        /* display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+        justify-items: center; */
+        display: flex;
+        justify-content: space-between;
+        padding:3% 4%;
+    }
 
-#searchbar{
-    /* display: grid ;
-    grid-template-columns: 1fr 5fr;
-    justify-self: flex-start;
-    padding:3% 0% 4% 0%; */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
+        #searchbar{
+            /* display: grid ;
+            grid-template-columns: 1fr 5fr;
+            justify-self: flex-start;
+            padding:3% 0% 4% 0%; */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
 
-#searchbar input{
-    width:10vw;
-    grid-column: 2/3;
-    box-shadow:none;
-    border:none;
-    background-color: #e2e8f0;
-    min-height: 3vh;
-    border-radius: 20px;
-}
+        #searchbar input{
+            width:10vw;
+            grid-column: 2/3;
+            box-shadow:none;
+            border:none;
+            background-color: #e2e8f0;
+            min-height: 3vh;
+            border-radius: 20px;
+        }
 
-#notifications{
-    display: flex;
-    align-items: center;
-}
+        #notifications{
+            display: flex;
+            align-items: center;
+            gap:10px
+        }
+
+    #info{
+        display: flex;
+        justify-content: space-between;
+        padding: 0% 4%;
+        height: fit-content;
+
+    }
+
+        #greeting{
+            display: flex;
+            height: fit-content;
+        }
+
+            #greeting_name{
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+            }
+
+        #buttons{
+            display: flex;
+            height: fit-content;
+            gap:20px;
+        }
 
 /* BOXES */
 #boxes{
     background-color: #e2e8f0;
+    display: grid;
+    grid-template-columns: 6fr 2fr;
+    padding:4% 4%;
 }
+
+    #projects{
+        display: flex;
+        flex-direction: column ;
+    }
+
+    
