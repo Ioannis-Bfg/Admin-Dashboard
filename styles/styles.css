@@ -50,47 +50,111 @@ table {
 
 body{
     display: grid;
-    grid-template-columns: 3fr 12fr;
+    /* grid-template-columns: 3fr 12fr; */
+    grid-template-columns: minmax(250px, 2fr) minmax(200px, 12fr);
     font-family: 'Roboto',sans-serif;
     height:100vh;
+    box-sizing: border-box;
 }
 
 img {
     width:40px;
     height:40px;
 }
-
+svg{
+    width:33px;
+    height:33px;
+    fill: white;
+}
 #dashboard, #content, #top_bar {
-    max-height: calc(100vh);
+    max-height: calc(100%);
+    max-width: calc(100vw);
     /* overflow: hidden;  */
 }
 /* DASHBOARD */
 #dashboard{
-    background-color: #1992d4;
+    background-color: #2596be;
     color:white;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     gap:40px;
-    padding-top: 3%;
-    padding-left: 10%;
+    padding:8% 0% 0% 10%;
 }
 
 #shortcuts ,#extended_shortcuts{
     display: flex;
     flex-direction: column;
+    gap:8px;
 }
 
-#shortcuts div {
+#shortcuts button {
     display: flex;
+    align-items: center;
+    gap:25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: scale 0.1s ease;
+    transition: transform 0.2s ease;
 }
 
-#extended_shortcuts div {
+#shortcuts button:hover {
+    scale: 1.1;
+    transition: scale 0.1s ease;
+}
+
+#shortcuts button:active {
+    transform: translateY(3px);
+    transition: transform 0.2s ease;
+}
+#shortcuts>button>p{
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+#extended_shortcuts button {
     display: flex;
+    align-items: center;
+    gap:25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: scale 0.1s ease;
+    transition: transform 0.2s ease;
+}
+
+#extended_shortcuts button:hover {
+    scale: 1.1;
+    transition: scale 0.1s ease;
+}
+
+#extended_shortcuts button:active {
+    transform: translateY(3px);
+    transition: transform 0.2s ease;
+}
+
+#extended_shortcuts>button>p {
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
 #logo{
     display: flex;
+    align-items: center;
+    gap:12px;
+    font-size: 1.7rem;
+    font-weight: 900;
+}
+
+#logo svg{
+    width:50px;
+    height:50px;
 }
 /* CONTENT */
 #content{
@@ -105,6 +169,13 @@ img {
     background-color: #ffffff;
     display:grid;
     grid-template-rows: 4fr 6fr;
+    padding:1% 4%;
+    row-gap: 20px;
+    color: rgb(32, 32, 32);
+}
+
+#top_bar svg{
+    fill: rgb(39, 39, 39);
 }
 
     #highlight{
@@ -114,7 +185,7 @@ img {
         justify-items: center; */
         display: flex;
         justify-content: space-between;
-        padding:1% 4%;
+        /* padding:2% 4% 0% 4%; */
     }
 
         #searchbar{
@@ -125,22 +196,23 @@ img {
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            gap:5px;
         }
 
         #searchbar input{
-            width:10vw;
+            width:46vw;
             grid-column: 2/3;
             box-shadow:none;
             border:none;
             background-color: #e2e8f0;
-            min-height: 3vh;
+            min-height: 3.5vh;
             border-radius: 20px;
         }
 
         #notifications{
             display: flex;
             align-items: center;
-            gap:10px
+            gap:14px
         }
 
     #info{
@@ -148,24 +220,57 @@ img {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0% 4%;
+        /* padding: 2% 4%; */
     }
 
         #greeting{
             display: flex;
             height: fit-content;
+            align-items: center;
+            gap:10px;
         }
 
             #greeting_name{
+                font-weight: 600;
+                font-size: 0.95rem;
                 display: flex;
                 flex-direction: column;
                 height: fit-content;
+                justify-content: space-between;
+                gap:14px;
             }
 
         #buttons{
             display: flex;
-            height: fit-content;
-            gap:20px;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap:nowrap;
+            width:40%;
+            gap:15px;
+        }
+
+        #buttons button{
+            font-family: 'Roboto';
+            background-color: #2596be;
+            border: transparent;
+            padding: 2% 4%;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: scale 0.1s ease;
+            transition: transform 0.1s ease;
+        }
+
+        #buttons button:hover{
+            scale:1.1;
+            transition: scale 0.1s ease;
+            font-weight: 900;
+        }
+
+        #buttons button:active{
+            transform: translateY(3px);
+            transition: transform 0.1s ease;
         }
 
 /* BOXES */
@@ -173,7 +278,7 @@ img {
     background-color: #e2e8f0;
     display: grid;
     grid-template-columns: 6fr 2fr;
-    padding:4% 4%;
+    padding:1% 4% 1%;
     gap:50px;
 }
 
@@ -182,6 +287,11 @@ img {
         flex-direction: column ;
         justify-content: space-between;
         gap:10px; 
+    }
+
+    #projects>p:first-child{
+        font-weight: 700;
+        font-size: 1.2rem ;
     }
 
         #grid{
@@ -193,8 +303,14 @@ img {
             justify-items:flex-start;
         }
 
+        #grid svg{
+            fill: rgb(39, 39, 39);
+            width: 30px;
+            height: 30px;
+        }
         .card{
-            width:300px;
+            width: clamp(300px,23vw,25vw);
+            height: clamp(180px,8vh,8vh);
             /* border: 5px solid black; */
             border-radius: 15px;
             padding:3% 5%;
@@ -202,22 +318,25 @@ img {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-left: 5px solid rgb(231, 120, 46);
+            border-left: 5px solid #94be89;
         }
 
         .card p:first-child {
             font-weight: 700;
+            font-size: 1.1rem;
+            color: #1d1d1d;
         }
         
         .images{
             display: flex;
             align-self: flex-end;
+            gap: 0.6vw;
         }
 
         .desc{
             display: flex;
             flex-direction: column;
-            gap:8px;
+            gap:15px;
         }
     
 
@@ -232,6 +351,11 @@ img {
         justify-content: flex-start;
         gap:10px;
     }
+
+    #announcements p:first-child{
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
     #announcements_box{
         display: flex;
         height: 100%;
@@ -239,13 +363,39 @@ img {
         justify-content: space-around;
         background-color: white;
         border-radius: 15px;
-        padding: 4%;
+        padding: 5% 10%;
+        color:rgb(39, 39, 39)
+    }
+
+    #announcements_box div{
+        display: flex;
+        flex-direction: column;
+        gap:5px;
+    }
+    #announcements_box>div p:first-child{
+        font-size:1rem;
+        font-weight: 900;
+    }
+
+    #announcements_box>div p:last-child{
+        font-size: 0.94rem;
+    }
+
+    #announcements div:not(:last-child) {
+        border-bottom: 2px solid #ccc; 
+        padding-bottom: 14px; 
+        /* margin-bottom: 10px;  */
     }
 
     #trending{
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+    #trending p:first-child{
+        font-weight: 700;
+        font-size: 1.2rem;
     }
 
     #trending_box{
@@ -270,5 +420,16 @@ img {
     .trend_user{
         display: flex;
         justify-content: flex-start;
+        align-items: center;
         gap:20px
+    }
+
+    .trend_user img{
+        border-radius: 40px;
+        height:50px;
+        width:50px;
+    }
+
+    .user p:last-child{
+        color:rgb(48, 48, 48)
     }
